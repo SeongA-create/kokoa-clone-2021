@@ -1,0 +1,42 @@
+.alt-header{
+    padding: 40px 25px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(143,94,123);
+}
+
+.alt-header__title{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.alt-header__column:first-child{
+    margin-right: auto;
+}
+
+.alt-header__column:nth-child(2){
+    text-align: center;
+}
+/*글씨중앙에오게 하는법*/
+
+.alt-header__column:last-child{
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+/*(글씨중앙)세번째 단락은 뒷쪽으로 보내기*/
+
+.alt-header__column a{
+    color: rgb(143,94,123);
+}
+
+.alt-header__column:last-child span:not(:first-child) {
+    margin-left: 20px;
+    }
+
+    .alt-header__column{
+        width: 33%;
+    }
+ /*너비를 동일하게 33%로 맞춤*/

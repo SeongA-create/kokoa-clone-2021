@@ -1,0 +1,44 @@
+a{
+    color: black;
+}
+
+#friends-display-link{
+    text-align: center;
+    display: block;
+    color: rgb(143,94,123);
+    background-color: var(--yellow);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top:-15px;
+}
+
+.friends-screen-main{
+    padding: 0px var(--horizontal-space);
+}
+@keyframes hideSplashScreen{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+        /*지금은 애니메이션 화면이 눈에 보이지않게만 할 뿐,
+        완전히 없애려면 java가 필요함.*/
+    }
+}
+#splash-screen{
+    background-color: rgb(159,178,254); 
+    position: absolute;
+    /*body가 relative가 됨*/
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+    animation: hideSplashScreen 0.4s ease-in-out forwards;
+    /*forwards를 넘어서 애니메이션이 마지막 장면에서 계속 유지되도록 함*/
+    animation-delay: 1s;
+}

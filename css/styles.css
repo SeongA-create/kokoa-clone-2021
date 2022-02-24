@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import "reset.css";
+@import "variables.css";
+
+@import "components/status-bar.css";
+@import "components/nav-bar.css";
+@import "components/screen-header.css";
+@import "components/user-components.css";
+@import "components/badge.css";
+@import "components/icon-row.css";
+@import "components/alt-screen-header.css";
+@import "components/no-mobile.css";
+
+@import "screens/login.css";
+@import "friends.css";
+@import "screens/find.css";
+@import "screens/more.css";
+@import "screens/settings.css";
+@import "screens/chat.css";
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: rgb(255,217,231);
+}
+
+.main-screen{
+    padding: 0px var(--horizontal-space);
+}
+

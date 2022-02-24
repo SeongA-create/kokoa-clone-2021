@@ -1,0 +1,188 @@
+#chat-screen{
+    height: 11000vh;
+}
+
+#chat-screen .alt-header{
+    position: sticky;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    /*더이상 같은 레이어에 있는 애들이 아니기때문에
+    위치를 정해줘야해서 top을 0으로..*/
+    background-color: rgb(255,217,231);
+}
+
+#chat-screen .status-bar{
+    z-index: 1;
+}
+/*fixed를 사용하면 레이어가 생김, z-index는 레이어 순서를 정해줌*/
+
+@keyframes fadeIn{
+    from{
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.main-chat{
+    margin-top: 10px;
+    display: flex;
+    /*flex를 주면 div로 인해 block이 되어 꽉 차던 사각형이
+    글자가로에 맞게 크기가 바뀜*/
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s linear;
+}
+
+ .chat__timestamp{
+     color: white;
+     background-color: rgba(143,94,123,0.5);
+     padding: 15px;
+     border-radius: 25px;
+     margin-bottom: 25px;
+     font-size: 13px;
+ }
+
+ .message-row{
+     width: 100%;
+     display: flex;
+     margin-bottom: 25px;     
+ }
+
+ .message-row img{
+     width: 50px;
+     height: 50px;
+     border-radius: 15px;
+     margin-right: 15px;
+ 
+ }
+
+ .message__author{
+     color: rgb(143,94,123);
+     margin-bottom: 8px;
+     display: block;
+     /*span은 inline이라서 margin이 안 먹음*/
+ }
+
+ .message__bubble{
+     background-color: white;
+     padding: 13px;
+     border-radius: 10px;
+     border-top-left-radius: 0px;
+     color: black;
+     margin-right: 5px;
+ }
+
+ .message__info{
+     display: flex;
+     align-items: flex-end;
+ }
+
+ .message__time{
+     font-size: 13px;
+ }
+
+ .message-row--own{
+     justify-content: flex-end;
+ }
+
+ .message-row--own .message__bubble{
+    background-color: rgb(159,178,254);   
+    color: white;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 15px;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+
+.message-row--own .message__info{
+    flex-direction: row-reverse;
+    /* 말풍선과 시간의 순서를 바꾸기 위해 적용함*/
+}
+
+.reply{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 25px;
+    align-items: center;
+    box-sizing: border-box;
+    /*box-sizing을 해야 input위에 버튼 아이콘을 올릴 때 눈에 보임*/
+    transition: all 0.3s ease-in-out;
+    /*대상이 all이면 애니메이션이 부드러워진다?*/
+}
+
+.reply .reply__column:first-child{
+    width: 10%;
+}
+
+.reply .reply__column:last-child{
+    width: 90%;
+    position: relative;
+}
+.reply input{   
+    padding: 10px;
+    /* width: 100%;를 줘서 메세지 입력칸의 공간을 늘리고 싶지만
+    input이 reply__column의 자식인데 이 column이 width를 
+    갖고있지 않으면 적용이 되지 않는다. */
+    width: 100%;
+    border: var(--main-border);
+    border-radius: 20px;
+    transition: transform .3s ease-in-out;
+    /*transition은 프로퍼티값을 변화시키는 애니메이션?*/
+}
+
+.reply i{
+    opacity: 0.5;
+}
+
+.reply__column:last-child > i,
+.reply__column:last-child button{
+    position: absolute;
+    right: -18px;
+    top: 3px;
+}
+
+.reply__column:last-child > i{
+    right: 25px;
+    top: 10px;
+}
+
+.reply__column button{
+    background-color: rgb(159,178,254); 
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.reply__column button i{
+    opacity: 1;
+}
+
+.reply__column button:focus,
+.reply__column button:active{
+    outline: none;
+}
+
+.reply:focus-within .reply__column:first-child{
+  opacity: 0;
+  visibility: hidden;
+    /*focus-within을 쓰면 클릭할 때 변화가 생긴다*/
+}
+
+.reply:focus-within input{
+    width: 90vw;
+    transform: translateX(-10%) translateY(-80px);
+}
+
+.reply:focus-within{
+    transform: translateY(80px);
+}
